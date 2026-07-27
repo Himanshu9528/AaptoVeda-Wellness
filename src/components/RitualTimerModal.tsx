@@ -40,7 +40,7 @@ export const RitualTimerModal: React.FC<RitualTimerModalProps> = ({ isOpen, onCl
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-md animate-fadeIn">
       <div 
-        className="relative bg-[#121614] text-[#f0f1f2] w-full max-w-md rounded-3xl shadow-2xl border border-[#274e3d] p-8 text-center space-y-6"
+        className="relative bg-[#121614] text-[#f0f1f2] w-full max-w-md rounded-3xl shadow-2xl border border-[#274e3d] p-6 sm:p-8 text-center space-y-5 sm:space-y-6 max-h-[90vh] overflow-y-auto my-auto"
         onClick={(e) => e.stopPropagation()}
       >
         <button

@@ -19,7 +19,7 @@ export const ProductModal: React.FC<ProductModalProps> = ({
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 md:p-10 bg-black/60 backdrop-blur-md overflow-y-auto animate-fadeIn">
       <div 
-        className="relative bg-[#f8f9fa] dark:bg-[#121614] text-[#191c1d] dark:text-[#f0f1f2] w-full max-w-4xl rounded-3xl shadow-2xl border border-[#c1c8c2]/40 dark:border-[#274e3d] overflow-hidden my-auto max-h-[90vh] flex flex-col md:flex-row"
+        className="relative bg-[#f8f9fa] dark:bg-[#121614] text-[#191c1d] dark:text-[#f0f1f2] w-full max-w-4xl rounded-3xl shadow-2xl border border-[#c1c8c2]/40 dark:border-[#274e3d] my-auto max-h-[90vh] overflow-y-auto md:overflow-hidden flex flex-col md:flex-row"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Close Button */}
@@ -86,7 +86,7 @@ export const ProductModal: React.FC<ProductModalProps> = ({
         </div>
 
         {/* Right Column: Detailed Info & Actions */}
-        <div className="w-full md:w-1/2 p-6 md:p-8 space-y-6 overflow-y-auto">
+        <div className="w-full md:w-1/2 p-6 md:p-8 space-y-6 md:overflow-y-auto md:max-h-[90vh]">
           {/* Header Info */}
           <div className="flex items-center justify-between border-b border-[#c1c8c2]/30 pb-4">
             <div>

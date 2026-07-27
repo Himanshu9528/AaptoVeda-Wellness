@@ -305,7 +305,7 @@ export const DoshaQuizModal: React.FC<DoshaQuizModalProps> = ({
         </button>
 
         {!resultDosha ? (
-          <div className="space-y-5 overflow-y-auto pr-1">
+  <div className="space-y-5 overflow-y-auto pr-1 flex-1 min-h-0">
             {/* Step Header with pr-12 to reserve space for close button */}
             <div className="space-y-1.5 pr-12">
               <div className="flex flex-wrap items-center justify-between text-xs font-bold uppercase tracking-widest text-[#735c00] dark:text-[#ffe088] gap-2">
@@ -373,7 +373,8 @@ export const DoshaQuizModal: React.FC<DoshaQuizModalProps> = ({
           </div>
         ) : (
           /* Detailed Result State */
-          <div className="space-y-5 overflow-y-auto pr-1">
+          /* Detailed Result State */
+<div className="space-y-5 overflow-y-auto pr-1 flex-1 min-h-0">
             {/* Result Header with pr-12 to ensure close button never overlaps */}
             <div className="text-center space-y-2 pr-12 pt-1">
               <div className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-[#cba72f]/20 text-3xl mx-auto shadow-inner">
