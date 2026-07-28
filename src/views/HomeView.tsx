@@ -30,7 +30,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
             <div className="lg:col-span-7 space-y-6">
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#cba72f]/15 border border-[#cba72f]/30 text-[#735c00] dark:text-[#ffe088] text-xs font-bold uppercase tracking-widest">
                 <span className="material-symbols-outlined text-sm text-[#cba72f]">auto_stories</span>
-                <span>Classical Ayurvedic Science • Since 5,000 BCE</span>
+                <span>Rooted In Tradition ,Proven By Science</span>
               </div>
 
               <h1 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-[#012d1d] dark:text-[#c1ecd4] leading-[1.15]">
@@ -39,8 +39,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
               </h1>
 
               <p className="text-xs sm:text-base text-[#414844] dark:text-[#bfc9c3] leading-relaxed max-w-xl font-medium">
-                Discover how classical Ayurvedic herbs work in synergy with your body's innate intelligence. Explore Prakriti constitutions, elemental energies, and wild-harvested adaptogenic science.
-              </p>
+              Welcome to Aaptoveda Wellness, where ancient Ayurvedic wisdom meets modern pharmaceutical precision. Dedicated to authentic health and holistic healing, we formulate high-quality, standardized Ayurvedic medicines designed to restore balance and vitality. Every product we craft is rooted in classical texts, carefully processed, and thoroughly tested to ensure safety, purity, and efficacy for your family's well-being.              </p>
 
               <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5">
                 <button
