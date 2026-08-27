@@ -1,11 +1,8 @@
 import React, { useState } from 'react';
-import { Product } from '../types';
 
 interface DoshaQuizModalProps {
   isOpen: boolean;
   onClose: () => void;
-  products: Product[];
-  onSelectProduct: (product: Product) => void;
 }
 
 interface Question {
@@ -234,9 +231,7 @@ const QUESTIONS: Question[] = [
 
 export const DoshaQuizModal: React.FC<DoshaQuizModalProps> = ({
   isOpen,
-  onClose,
-  products,
-  onSelectProduct
+  onClose
 }) => {
   const [currentStep, setCurrentStep] = useState(0);
   const [scores, setScores] = useState({ vata: 0, pitta: 0, kapha: 0 });
@@ -270,17 +265,6 @@ export const DoshaQuizModal: React.FC<DoshaQuizModalProps> = ({
     setSelectedOptionIndex(null);
   };
 
-  const getEducationalBotanicals = () => {
-    if (!resultDosha) return [];
-    if (resultDosha === 'vata') {
-      return products.filter(p => p.dosha.vata === 'Balances').slice(0, 3);
-    }
-    if (resultDosha === 'pitta') {
-      return products.filter(p => p.dosha.pitta === 'Balances').slice(0, 3);
-    }
-    return products.filter(p => p.dosha.kapha === 'Balances').slice(0, 3);
-  };
-
   const currentQ = QUESTIONS[currentStep];
   const totalQuestions = QUESTIONS.length;
   const totalAnswers = scores.vata + scores.pitta + scores.kapha;
@@ -305,7 +289,7 @@ export const DoshaQuizModal: React.FC<DoshaQuizModalProps> = ({
         </button>
 
         {!resultDosha ? (
-  <div className="space-y-5 overflow-y-auto pr-1 flex-1 min-h-0">
+          <div className="space-y-5 overflow-y-auto pr-1">
             {/* Step Header with pr-12 to reserve space for close button */}
             <div className="space-y-1.5 pr-12">
               <div className="flex flex-wrap items-center justify-between text-xs font-bold uppercase tracking-widest text-[#735c00] dark:text-[#ffe088] gap-2">
@@ -373,8 +357,7 @@ export const DoshaQuizModal: React.FC<DoshaQuizModalProps> = ({
           </div>
         ) : (
           /* Detailed Result State */
-          /* Detailed Result State */
-<div className="space-y-5 overflow-y-auto pr-1 flex-1 min-h-0">
+          <div className="space-y-5 overflow-y-auto pr-1">
             {/* Result Header with pr-12 to ensure close button never overlaps */}
             <div className="text-center space-y-2 pr-12 pt-1">
               <div className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-[#cba72f]/20 text-3xl mx-auto shadow-inner">
@@ -466,36 +449,6 @@ export const DoshaQuizModal: React.FC<DoshaQuizModalProps> = ({
               </div>
             </div>
 
-            {/* Key Classical Botanicals to Explore */}
-            <div className="space-y-2.5">
-              <h4 className="text-xs font-bold uppercase tracking-wider text-[#735c00] dark:text-[#cba72f] flex items-center gap-1.5">
-                <span className="material-symbols-outlined text-sm">eco</span>
-                <span>Classical Botanicals for {resultDosha} Constitution</span>
-              </h4>
-
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                {getEducationalBotanicals().map((p) => (
-                  <div key={p.id} className="p-3 bg-white dark:bg-[#1b4332]/40 rounded-2xl border border-[#c1c8c2]/30 flex flex-col justify-between hover:shadow-md transition-shadow">
-                    <div>
-                      <img src={p.image} alt={p.title} className="w-full h-20 object-cover rounded-xl mb-2" />
-                      <h5 className="font-serif text-xs font-bold truncate text-[#012d1d] dark:text-[#c1ecd4]">{p.title}</h5>
-                      <p className="text-[10px] text-gray-500 dark:text-gray-400 line-clamp-1">{p.category}</p>
-                    </div>
-                    <button
-                      onClick={() => {
-                        onSelectProduct(p);
-                        onClose();
-                      }}
-                      className="mt-2 w-full py-1.5 rounded-xl bg-[#012d1d] text-white text-[11px] font-semibold hover:bg-[#1b4332] transition-colors flex items-center justify-center gap-1"
-                    >
-                      <span>Read Profile</span>
-                      <span className="material-symbols-outlined text-xs">east</span>
-                    </button>
-                  </div>
-                ))}
-              </div>
-            </div>
-
             {/* Actions */}
             <div className="flex gap-3 pt-2">
               <button
@@ -508,7 +461,7 @@ export const DoshaQuizModal: React.FC<DoshaQuizModalProps> = ({
                 onClick={onClose}
                 className="flex-1 py-3 rounded-full bg-[#012d1d] hover:bg-[#1b4332] text-white text-xs font-bold shadow-md transition-colors"
               >
-                Close & Explore Products
+                Close
               </button>
             </div>
           </div>

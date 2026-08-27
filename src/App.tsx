@@ -6,7 +6,6 @@ import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
 import { ProductModal } from './components/ProductModal';
 import { DoshaQuizModal } from './components/DoshaQuizModal';
-import { RitualTimerModal } from './components/RitualTimerModal';
 
 import { HomeView } from './views/HomeView';
 import { RemediesView } from './views/RemediesView';
@@ -16,7 +15,7 @@ import { ContactView } from './views/ContactView';
 
 export function App() {
   const [currentView, setCurrentView] = useState<PageView>('home');
-  
+
   // Initialize dark mode from localStorage or default to false
   const [darkMode, setDarkMode] = useState<boolean>(() => {
     try {
@@ -29,7 +28,6 @@ export function App() {
 
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   const [quizOpen, setQuizOpen] = useState(false);
-  const [timerOpen, setTimerOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
 
   // Synchronize dark mode class on <html> element
@@ -50,8 +48,8 @@ export function App() {
   }, [darkMode]);
 
   return (
-    <div className="min-h-screen bg-[#f8f9fa] dark:bg-[#121614] text-[#191c1d] dark:text-[#f0f1f2] flex flex-col justify-between selection:bg-[#cba72f] selection:text-[#241a00] transition-colors duration-300">
-      
+    <div className="min-h-screen min-h-dvh w-full max-w-[100vw] overflow-x-hidden bg-[#f8f9fa] dark:bg-[#121614] text-[#191c1d] dark:text-[#f0f1f2] flex flex-col justify-between selection:bg-[#cba72f] selection:text-[#241a00] transition-colors duration-300">
+
       {/* Top Fixed Navbar */}
       <Navbar
         currentView={currentView}
@@ -64,7 +62,7 @@ export function App() {
       />
 
       {/* Main Page View Content */}
-      <main className="flex-grow">
+      <main className="flex-grow w-full">
         {currentView === 'home' && (
           <HomeView
             products={PRODUCTS}
@@ -87,8 +85,6 @@ export function App() {
         {currentView === 'spotlight' && (
           <SpotlightView
             products={PRODUCTS}
-            onOpenTimer={() => setTimerOpen(true)}
-            setCurrentView={setCurrentView}
           />
         )}
 
@@ -108,32 +104,16 @@ export function App() {
         onOpenQuiz={() => setQuizOpen(true)}
       />
 
-      {/* Product Detail Modal (Purely Educational) */}
+      {/* Product Detail Modal (Ingredients Only) */}
       <ProductModal
         product={selectedProduct}
         onClose={() => setSelectedProduct(null)}
-        onOpenTimer={() => setTimerOpen(true)}
-        onViewSpotlight={() => {
-          setCurrentView('spotlight');
-          window.scrollTo({ top: 0, behavior: 'smooth' });
-        }}
       />
 
-      {/* Dosha Quiz Modal (Purely Educational & Entertaining) */}
+      {/* Dosha Quiz Modal (Purely Educational, No Product Suggestions) */}
       <DoshaQuizModal
         isOpen={quizOpen}
         onClose={() => setQuizOpen(false)}
-        products={PRODUCTS}
-        onSelectProduct={(p) => {
-          setSelectedProduct(p);
-          setQuizOpen(false);
-        }}
-      />
-
-      {/* Evening Ritual Timer Modal */}
-      <RitualTimerModal
-        isOpen={timerOpen}
-        onClose={() => setTimerOpen(false)}
       />
 
     </div>

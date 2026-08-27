@@ -63,11 +63,3 @@
   background: #274e3d;
 }
 
-/* Hidden-scrollbar utility used on horizontally-scrolling mobile filter rows */
-.scrollbar-none {
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-}
-.scrollbar-none::-webkit-scrollbar {
-  display: none;
-}

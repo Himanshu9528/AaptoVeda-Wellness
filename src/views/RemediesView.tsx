@@ -12,14 +12,13 @@ interface RemediesViewProps {
 
 const CATEGORIES: CategoryType[] = [
   'All',
-  'Vitality & Strength',
-  'Detox & Digestion',
-  'Memory & Clarity',
-  'Hormonal Balance',
-  'Stress Relief',
-  'Skin & Blood',
-  'Ojas Builder',
-  'Inflammation Support'
+  'Kidney Care',
+  'Vitality & Immunity',
+  'Respiratory Care',
+  "Women's Health",
+  'Liver Care',
+  'Digestive Care',
+  'Pancreatic Care'
 ];
 
 export const RemediesView: React.FC<RemediesViewProps> = ({
@@ -33,10 +32,10 @@ export const RemediesView: React.FC<RemediesViewProps> = ({
   const filteredProducts = useMemo(() => {
     return products.filter((p) => {
       const matchesCategory = selectedCategory === 'All' || p.category === selectedCategory;
-      const matchesSearch = 
+      const matchesSearch =
         p.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        p.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        p.category.toLowerCase().includes(searchQuery.toLowerCase());
+        p.category.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        p.ingredients.some((ing) => ing.name.toLowerCase().includes(searchQuery.toLowerCase()));
       return matchesCategory && matchesSearch;
     });
   }, [products, selectedCategory, searchQuery]);

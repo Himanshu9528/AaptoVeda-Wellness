@@ -15,12 +15,13 @@ export const Logo: React.FC<LogoProps> = ({
   className = ''
 }) => {
   // Height configurations
-  const logoHeight = size === 'sm' ? 'h-8 sm:h-9' : size === 'lg' ? 'h-14 sm:h-16' : 'h-10 sm:h-11';
-  const textTitleSize = size === 'sm' ? 'text-lg sm:text-xl' : size === 'lg' ? 'text-3xl sm:text-4xl' : 'text-xl sm:text-2xl';
-  const textSubSize = size === 'sm' ? 'text-[9px]' : size === 'lg' ? 'text-xs tracking-[0.2em]' : 'text-[10px] tracking-[0.18em]';
+  const logoHeight = size === 'sm' ? 'h-8 sm:h-9' : size === 'lg' ? 'h-14 sm:h-16' : 'h-11 sm:h-12 lg:h-12 xl:h-14';
+  const textTitleSize = size === 'sm' ? 'text-lg sm:text-xl' : size === 'lg' ? 'text-3xl sm:text-4xl' : 'text-xl sm:text-2xl xl:text-3xl';
+  const textSubSize = size === 'sm' ? 'text-[9px]' : size === 'lg' ? 'text-xs tracking-[0.2em]' : 'text-[10px] xl:text-[11px] tracking-[0.18em]';
+  const gapClass = size === 'sm' ? 'gap-2 sm:gap-2.5' : size === 'lg' ? 'gap-3 sm:gap-4' : 'gap-2.5 sm:gap-3 xl:gap-3.5';
 
   return (
-    <div className={`flex items-center gap-2.5 sm:gap-3 group select-none ${className}`}>
+    <div className={`flex items-center ${gapClass} group select-none ${className}`}>
       {/* Brand Icon Image with crisp rounded framing */}
       <div className={`relative ${logoHeight} aspect-square rounded-xl overflow-hidden bg-white dark:bg-white/95 p-1 border border-[#c1c8c2]/40 shadow-sm shrink-0 flex items-center justify-center transition-transform duration-300 group-hover:scale-105`}>
         <img

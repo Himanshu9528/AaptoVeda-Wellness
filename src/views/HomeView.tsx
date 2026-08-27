@@ -2,6 +2,7 @@ import React from 'react';
 import { HERO_IMAGE, ROOTS_IMAGE } from '../data/products';
 import { Product, PageView } from '../types';
 import { ProductCard } from '../components/ProductCard';
+import { Tilt3DShowcase } from '../components/Tilt3DShowcase';
 
 interface HomeViewProps {
   products: Product[];
@@ -21,90 +22,60 @@ export const HomeView: React.FC<HomeViewProps> = ({
   return (
     <div className="space-y-16 sm:space-y-24 pb-20 pt-16 md:pt-20">
       
-      {/* 1. Hero Section - Modern Asymmetric Split Layout */}
-      <section className="max-w-[1600px] mx-auto px-4 sm:px-6 md:px-12">
-        <div className="bg-[#f3f5f3] dark:bg-[#121614] rounded-3xl p-6 sm:p-10 lg:p-12 border border-[#c1c8c2]/40 dark:border-[#274e3d] shadow-lg">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-            
-            {/* Left Column: Content & Typography */}
-            <div className="lg:col-span-7 space-y-6">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#cba72f]/15 border border-[#cba72f]/30 text-[#735c00] dark:text-[#ffe088] text-xs font-bold uppercase tracking-widest">
-                <span className="material-symbols-outlined text-sm text-[#cba72f]">auto_stories</span>
-                <span>Rooted In Tradition ,Proven By Science</span>
-              </div>
+      {/* 1. Hero Section - Editorial Apothecary Label Layout */}
+      <section className="w-full px-4 sm:px-6 md:px-12">
+        <div className="max-w-[1320px] mx-auto border-t border-b border-[#cba72f]/30 dark:border-[#cba72f]/20">
+          <div className="grid grid-cols-1 lg:grid-cols-[1fr_auto_1fr] min-h-[auto] sm:min-h-[calc(100dvh-13rem)] lg:min-h-[calc(100dvh-10rem)]">
 
-              <h1 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-[#012d1d] dark:text-[#c1ecd4] leading-[1.15]">
-                The Science of <br />
+            {/* Left: Text Column */}
+            <div className="flex flex-col justify-center py-10 sm:py-14 lg:py-0 lg:pr-14 space-y-6">
+              <span className="inline-flex items-center gap-2.5 text-[11px] font-bold uppercase tracking-[0.25em] text-[#735c00] dark:text-[#cba72f]">
+                <span className="w-7 h-px bg-[#cba72f]"></span>
+                Est. 5,000 BCE · Classical Ayurveda
+              </span>
+
+              <h1 className="font-serif text-4xl sm:text-6xl lg:text-[3.75rem] xl:text-[4.25rem] leading-[1.05] font-bold text-[#012d1d] dark:text-[#c1ecd4] tracking-tight">
+                The Science of<br />
                 <span className="italic font-normal text-[#735c00] dark:text-[#ffe088]">Sacred Botanical Harmony</span>
               </h1>
 
-              <p className="text-xs sm:text-base text-[#414844] dark:text-[#bfc9c3] leading-relaxed max-w-xl font-medium">
-              Welcome to Aaptoveda Wellness, where ancient Ayurvedic wisdom meets modern pharmaceutical precision. Dedicated to authentic health and holistic healing, we formulate high-quality, standardized Ayurvedic medicines designed to restore balance and vitality. Every product we craft is rooted in classical texts, carefully processed, and thoroughly tested to ensure safety, purity, and efficacy for your family's well-being.              </p>
+              <p className="text-sm sm:text-base text-[#414844] dark:text-[#bfc9c3] leading-relaxed max-w-md">
+              Welcome to Aaptoveda Wellness, where ancient Ayurvedic wisdom meets modern pharmaceutical precision. Dedicated to authentic health and holistic healing, we formulate high-quality, standardized Ayurvedic medicines designed to restore balance and vitality. Every product we craft is rooted in classical texts, carefully processed, and thoroughly tested to ensure safety, purity, and efficacy for your family's well-being.
+              </p>
 
-              <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5">
+              <div className="flex flex-wrap items-center gap-x-7 gap-y-4 pt-2">
                 <button
                   onClick={() => {
                     setCurrentView('remedies');
                     window.scrollTo({ top: 0, behavior: 'smooth' });
                   }}
-                  className="py-3.5 px-8 rounded-full bg-[#012d1d] hover:bg-[#1b4332] text-white font-bold text-xs sm:text-sm shadow-xl transition-all duration-300 flex items-center justify-center gap-2"
+                  className="py-3.5 px-8 rounded-full bg-[#012d1d] hover:bg-[#1b4332] text-white font-bold text-xs sm:text-sm shadow-lg transition-all duration-300 flex items-center justify-center gap-2"
                 >
-                  <span>Explore Products</span>
+                  <span>Explore Products </span>
                   <span className="material-symbols-outlined text-base text-[#ffe088]">arrow_forward</span>
                 </button>
 
                 <button
                   onClick={onOpenQuiz}
-                  className="py-3.5 px-7 rounded-full bg-white dark:bg-[#1b4332]/60 hover:bg-gray-100 dark:hover:bg-[#1b4332] text-[#012d1d] dark:text-[#c1ecd4] border border-[#c1c8c2] dark:border-[#274e3d] font-semibold text-xs sm:text-sm transition-all flex items-center justify-center gap-2 shadow-sm"
+                  className="group text-xs sm:text-sm font-bold text-[#012d1d] dark:text-[#c1ecd4] flex items-center gap-1.5"
                 >
-                  <span className="material-symbols-outlined text-base text-[#cba72f]">psychology</span>
                   <span>Discover Your Dosha</span>
+                  <span className="material-symbols-outlined text-base transition-transform group-hover:translate-x-1">arrow_forward</span>
                 </button>
-              </div>
-
-              {/* Trust Pillars */}
-              <div className="pt-4 border-t border-[#c1c8c2]/30 dark:border-[#274e3d]/60 flex flex-wrap items-center gap-4 text-xs text-[#525e57] dark:text-[#a5d0b9]">
-                <div className="flex items-center gap-1.5">
-                  <span className="material-symbols-outlined text-sm text-[#cba72f]">eco</span>
-                  <span>100% Organic Botanicals</span>
-                </div>
-                <div className="flex items-center gap-1.5">
-                  <span className="material-symbols-outlined text-sm text-[#cba72f]">verified</span>
-                  <span>Heavy Metal Tested</span>
-                </div>
-                <div className="flex items-center gap-1.5">
-                  <span className="material-symbols-outlined text-sm text-[#cba72f]">workspace_premium</span>
-                  <span>Charaka Samhita Formulations</span>
-                </div>
               </div>
             </div>
 
-            {/* Right Column: High Quality Image Card Frame */}
-            <div className="lg:col-span-5 relative">
-              <div className="relative aspect-[4/3] sm:aspect-[16/10] lg:aspect-[4/5] rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl border-2 border-[#cba72f]/30 group">
-                <img
-                  src={HERO_IMAGE}
-                  alt="Sacred Ayurvedic Botanical Garden & Apothecary"
-                  className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
-                  referrerPolicy="no-referrer"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+            {/* Signature Divider: a slim gold rule, echoing the foil band on every label */}
+            <div className="hidden lg:flex items-center justify-center px-2">
+              <div className="w-px h-2/3 bg-gradient-to-b from-transparent via-[#cba72f]/60 to-transparent"></div>
+            </div>
 
-                {/* Floating Info Overlay on Image */}
-                <div className="absolute bottom-4 left-4 right-4 p-4 rounded-2xl bg-white/90 dark:bg-[#121614]/90 backdrop-blur-md border border-white/20 dark:border-[#274e3d] shadow-lg flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-[#012d1d] text-[#ffe088] flex items-center justify-center shrink-0">
-                    <span className="material-symbols-outlined text-xl">spa</span>
-                  </div>
-                  <div>
-                    <h4 className="font-serif text-xs font-bold text-[#012d1d] dark:text-[#c1ecd4]">
-                      Wild-Harvested Apothecary
-                    </h4>
-                    <p className="text-[11px] text-gray-600 dark:text-gray-300">
-                      Standardized adaptogens & cold-pressed oils
-                    </p>
-                  </div>
-                </div>
-              </div>
+            {/* Right: Product Photography Column — Interactive 3D Tilt Showcase */}
+            <div className="flex items-center justify-center py-8 lg:py-14 lg:pl-14 border-t lg:border-t-0 border-[#cba72f]/20">
+              <Tilt3DShowcase
+                image={HERO_IMAGE}
+                alt="Aaptovit — Shilajit, Saffron & Pearl Tablets"
+              />
             </div>
 
           </div>

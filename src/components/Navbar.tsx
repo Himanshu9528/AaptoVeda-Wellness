@@ -32,21 +32,10 @@ export const Navbar: React.FC<NavbarProps> = ({
 
   return (
     <nav className="fixed top-0 left-0 w-full z-50 bg-[#f8f9fa]/90 dark:bg-[#121614]/90 backdrop-blur-xl border-b border-[#c1c8c2]/30 dark:border-[#274e3d]/40 transition-colors duration-300">
-      <div className="relative max-w-[1600px] mx-auto px-4 sm:px-6 md:px-12 py-3.5 flex items-center">
-
-        {/* Mobile Menu Hamburger Toggle (far left, mobile + tablet only) */}
-        <button
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="lg:hidden p-2 -ml-2 rounded-lg text-[#012d1d] dark:text-[#c1ecd4] hover:bg-gray-200 dark:hover:bg-[#1b4332]"
-          aria-label="Toggle Mobile Menu"
-        >
-          <span className="material-symbols-outlined text-2xl">
-            {mobileMenuOpen ? 'close' : 'menu'}
-          </span>
-        </button>
-
-        {/* Brand Logo — absolutely centered on mobile/tablet, normal flow on desktop */}
-        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 lg:static lg:left-auto lg:top-auto lg:translate-x-0 lg:translate-y-0 flex items-center">
+      <div className="w-full px-4 sm:px-6 md:px-8 lg:px-8 xl:px-12 py-3.5 flex items-center justify-between gap-2">
+        
+        {/* Brand Logo (left zone, mirrors right zone width so center nav is truly centered) */}
+        <div className="flex-1 flex items-center shrink-0">
           <button 
             onClick={() => handleNavClick('home')} 
             className="text-left focus:outline-none"
@@ -56,8 +45,8 @@ export const Navbar: React.FC<NavbarProps> = ({
           </button>
         </div>
 
-        {/* Desktop Nav Links */}
-        <div className="hidden lg:flex flex-1 items-center justify-center gap-7 text-sm font-semibold tracking-wide">
+        {/* Desktop Nav Links — centered between the two equal side zones */}
+        <div className="hidden lg:flex items-center justify-center gap-4 xl:gap-7 text-sm font-semibold tracking-wide shrink-0">
           <button
             onClick={() => handleNavClick('home')}
             className={`pb-1 transition-all ${
@@ -111,10 +100,10 @@ export const Navbar: React.FC<NavbarProps> = ({
           </button>
         </div>
 
-        {/* Action Controls & Utilities */}
-        <div className="flex items-center gap-1.5 sm:gap-2 lg:gap-4 shrink-0 ml-auto lg:ml-0">
-          {/* Search Input Bar (desktop only, matches nav link breakpoint) */}
-          <div className="relative hidden lg:block">
+        {/* Action Controls & Utilities (right zone, mirrors left zone width) */}
+        <div className="flex-1 flex items-center justify-end gap-1.5 sm:gap-2 xl:gap-4">
+          {/* Search Input Bar (full input only at xl+, where there's room) */}
+          <div className="relative hidden xl:block">
             <input
               type="text"
               value={searchQuery}
@@ -125,26 +114,26 @@ export const Navbar: React.FC<NavbarProps> = ({
                 }
               }}
               placeholder="Search products..."
-              className="bg-[#edeeef] dark:bg-[#1b4332]/60 text-[#191c1d] dark:text-[#f0f1f2] text-xs font-medium rounded-full px-4 py-2 pl-4 pr-9 w-48 xl:w-60 focus:outline-none focus:ring-2 focus:ring-[#012d1d] dark:focus:ring-[#c1ecd4] transition-all"
+              className="bg-[#edeeef] dark:bg-[#1b4332]/60 text-[#191c1d] dark:text-[#f0f1f2] text-xs font-medium rounded-full px-4 py-2 pl-4 pr-9 w-40 2xl:w-52 focus:outline-none focus:ring-2 focus:ring-[#012d1d] dark:focus:ring-[#c1ecd4] transition-all"
             />
             <span className="material-symbols-outlined absolute right-3 top-2 text-lg text-[#414844] dark:text-[#a5d0b9] pointer-events-none">
               search
             </span>
           </div>
 
-          {/* Search Icon Toggle (mobile + tablet) */}
+          {/* Compact Search Toggle (below xl, including tablet/small-desktop) */}
           <button
             onClick={() => setShowSearchInput(!showSearchInput)}
-            className="lg:hidden p-2 rounded-full text-[#012d1d] dark:text-[#c1ecd4] hover:bg-gray-200 dark:hover:bg-[#1b4332]"
+            className="xl:hidden p-2 rounded-full text-[#012d1d] dark:text-[#c1ecd4] hover:bg-gray-200 dark:hover:bg-[#1b4332]"
             aria-label="Search"
           >
             <span className="material-symbols-outlined text-xl">search</span>
           </button>
 
-          {/* Dosha Quiz Button (desktop only, matches nav link breakpoint) */}
+          {/* Dosha Quiz Button */}
           <button
             onClick={onOpenQuiz}
-            className="hidden lg:flex items-center gap-1.5 text-xs font-semibold px-3.5 py-1.5 rounded-full bg-[#cba72f]/15 text-[#735c00] dark:text-[#ffe088] border border-[#cba72f]/40 hover:bg-[#cba72f]/25 transition-all whitespace-nowrap"
+            className="hidden md:flex items-center gap-1.5 text-xs font-semibold px-3 lg:px-3.5 py-1.5 rounded-full bg-[#cba72f]/15 text-[#735c00] dark:text-[#ffe088] border border-[#cba72f]/40 hover:bg-[#cba72f]/25 transition-all whitespace-nowrap"
             title="Interactive Dosha Knowledge Assessment"
           >
             <span className="material-symbols-outlined text-sm">spa</span>
@@ -154,7 +143,7 @@ export const Navbar: React.FC<NavbarProps> = ({
           {/* Day / Night Theme Toggle (Icon Only) */}
           <button
             onClick={() => setDarkMode((prev) => !prev)}
-            className="p-2 rounded-full bg-[#edeeef] dark:bg-[#1b4332] text-[#012d1d] dark:text-[#c1ecd4] hover:bg-[#e0e2e4] dark:hover:bg-[#274e3d] transition-all active:scale-95 border border-[#c1c8c2]/30 dark:border-[#274e3d] flex items-center justify-center shrink-0"
+            className="p-2 rounded-full bg-[#edeeef] dark:bg-[#1b4332] text-[#012d1d] dark:text-[#c1ecd4] hover:bg-[#e0e2e4] dark:hover:bg-[#274e3d] transition-all active:scale-95 border border-[#c1c8c2]/30 dark:border-[#274e3d] flex items-center justify-center"
             title={darkMode ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
             aria-label="Toggle Light/Dark Theme"
           >
@@ -162,12 +151,23 @@ export const Navbar: React.FC<NavbarProps> = ({
               {darkMode ? 'light_mode' : 'dark_mode'}
             </span>
           </button>
+
+          {/* Mobile Menu Hamburger Toggle */}
+          <button
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="lg:hidden p-2 rounded-lg text-[#012d1d] dark:text-[#c1ecd4] hover:bg-gray-200 dark:hover:bg-[#1b4332]"
+            aria-label="Toggle Mobile Menu"
+          >
+            <span className="material-symbols-outlined text-2xl">
+              {mobileMenuOpen ? 'close' : 'menu'}
+            </span>
+          </button>
         </div>
       </div>
 
-      {/* Mobile/Tablet Search Overlay */}
+      {/* Compact Search Overlay (shown below xl when search icon is tapped) */}
       {showSearchInput && (
-        <div className="lg:hidden px-4 sm:px-6 pb-3 pt-1 border-t border-[#c1c8c2]/20">
+        <div className="xl:hidden px-4 sm:px-6 pb-3 pt-1 border-t border-[#c1c8c2]/20">
           <div className="relative">
             <input
               type="text"

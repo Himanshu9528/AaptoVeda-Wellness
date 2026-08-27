@@ -39,7 +39,7 @@ export const Footer: React.FC<FooterProps> = ({ setCurrentView, onOpenQuiz }) =>
               <Logo variant="light" size="lg" />
             </button>
             <p className="text-[#a5d0b9] text-sm leading-relaxed max-w-sm">
-              Rooted in the 5,000-year classical tradition of Ayurvedic science. Honoring ancient botanical wisdom with verified modern quality standards.
+            Welcome to Aaptoveda Wellness, where ancient Ayurvedic wisdom meets modern pharmaceutical precision. Dedicated to authentic health and holistic healing, we formulate high-quality, standardized Ayurvedic medicines designed to restore balance and vitality. Every product we craft is rooted in classical texts, carefully processed, and thoroughly tested to ensure safety, purity, and efficacy for your family's well-being.
             </p>
             <div className="flex flex-wrap items-center gap-3 pt-2">
               <span className="px-3 py-1 rounded-full text-[11px] bg-[#1b4332] text-[#c1ecd4] border border-[#274e3d] flex items-center gap-1">
