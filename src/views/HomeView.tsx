@@ -20,8 +20,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
   const featuredProducts = products.slice(0, 3); // Ashwagandha, Triphala, Shatavari
 
   return (
-    <div className="space-y-16 sm:space-y-24 pb-20 pt-16 md:pt-20">
-      
+<div className="space-y-16 sm:space-y-24 pb-20 pt-24">      
       {/* 1. Hero Section - Editorial Apothecary Label Layout */}
       <section className="w-full px-4 sm:px-6 md:px-12">
         <div className="max-w-[1320px] mx-auto border-t border-b border-[#cba72f]/30 dark:border-[#cba72f]/20">
