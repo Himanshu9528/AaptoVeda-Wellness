@@ -24,6 +24,9 @@ export interface Product {
   image: string;
   volume: string;
   ingredients: Ingredient[];
+  dosage?: string;
+  indication?: string;
+  disclaimer?: string;
 }
 
 export interface DoshaQuizAnswer {

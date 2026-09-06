@@ -72,6 +72,27 @@ export const ProductModal: React.FC<ProductModalProps> = ({
             ))}
           </div>
 
+          {(product.dosage || product.indication) && (
+            <div className="space-y-1 pt-1">
+              {product.dosage && (
+                <p className="text-xs">
+                  <span className="font-bold text-[#012d1d] dark:text-[#c1ecd4]">Dosage- </span>
+                  <span className="text-gray-600 dark:text-gray-300">{product.dosage}</span>
+                </p>
+              )}
+              {product.indication && (
+                <p className="text-xs">
+                  <span className="font-bold text-[#012d1d] dark:text-[#c1ecd4]">Indication- </span>
+                  <span className="text-gray-600 dark:text-gray-300">{product.indication}</span>
+                </p>
+              )}
+            </div>
+          )}
+
+          {product.disclaimer && (
+            <p className="text-[10px] italic text-gray-400 dark:text-gray-500">{product.disclaimer}</p>
+          )}
+
           <div className="pt-2">
             <button
               onClick={onClose}
