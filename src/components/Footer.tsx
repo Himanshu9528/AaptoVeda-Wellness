@@ -161,9 +161,15 @@ export const Footer: React.FC<FooterProps> = ({ setCurrentView, onOpenQuiz }) =>
         <div className="pt-8 border-t border-[#274e3d]/60 flex flex-col sm:flex-row items-center justify-between text-xs text-[#73837a] gap-4">
           <p>© {new Date().getFullYear()} AaptoVeda Wellness Inc. All rights reserved.</p>
           <div className="flex gap-6">
-            <span className="hover:underline cursor-pointer">Purity Protocols</span>
-            <span className="hover:underline cursor-pointer">Terms of Use</span>
-            <span className="hover:underline cursor-pointer">Privacy Policy</span>
+            <button onClick={() => handleNav('purity')} className="hover:underline cursor-pointer">
+              Purity Protocols
+            </button>
+            <button onClick={() => handleNav('terms')} className="hover:underline cursor-pointer">
+              Terms of Use
+            </button>
+            <button onClick={() => handleNav('privacy')} className="hover:underline cursor-pointer">
+              Privacy Policy
+            </button>
           </div>
         </div>
       </div>

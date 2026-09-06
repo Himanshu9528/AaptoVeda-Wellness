@@ -12,6 +12,9 @@ import { RemediesView } from './views/RemediesView';
 import { SpotlightView } from './views/SpotlightView';
 import { WisdomView } from './views/WisdomView';
 import { ContactView } from './views/ContactView';
+import { PrivacyPolicyView } from './views/PrivacyPolicyView';
+import { PurityProtocolsView } from './views/PurityProtocolsView';
+import { TermsOfUseView } from './views/TermsOfUseView';
 
 export function App() {
   const [currentView, setCurrentView] = useState<PageView>('home');
@@ -96,6 +99,11 @@ export function App() {
         )}
 
         {currentView === 'contact' && <ContactView />}
+        {currentView === 'privacy' && <PrivacyPolicyView />}
+
+        {currentView === 'purity' && <PurityProtocolsView />}
+
+        {currentView === 'terms' && <TermsOfUseView />}
       </main>
 
       {/* Footer */}

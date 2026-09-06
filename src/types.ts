@@ -8,8 +8,9 @@ export type CategoryType =
   | 'Digestive Care'
   | 'Pancreatic Care';
 
-export type PageView = 'home' | 'remedies' | 'spotlight' | 'wisdom' | 'contact';
 
+  export type PageView = 'home' | 'remedies' | 'spotlight' | 'wisdom' | 'contact' | 'privacy' | 'purity' | 'terms';
+  
 export interface Ingredient {
   name: string;
   sanskritName?: string;
