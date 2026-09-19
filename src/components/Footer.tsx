@@ -122,38 +122,25 @@ export const Footer: React.FC<FooterProps> = ({ setCurrentView, onOpenQuiz }) =>
             </ul>
           </div>
 
-          {/* Newsletter Subscription */}
+          {/* Contact Information */}
           <div className="space-y-3">
             <h4 className="font-serif font-semibold text-[#cba72f] uppercase tracking-wider text-xs">
-              The Botanical Dispatch
+              Contact Us
             </h4>
-            <p className="text-xs text-[#a5d0b9]">
-              Receive lunar ritual guides and educational botanical insights.
-            </p>
-
-            {subscribed ? (
-              <div className="p-3 bg-[#1b4332] rounded-xl text-xs text-[#c1ecd4] flex items-center gap-2">
-                <span className="material-symbols-outlined text-base">check_circle</span>
-                <span>Thank you for subscribing!</span>
+            <div className="space-y-3 text-sm">
+              <div>
+                <p className="text-[#a5d0b9] text-xs mb-1">Customer Care</p>
+                <a href="tel:7060029580" className="text-[#bfc9c3] hover:text-white transition-colors font-semibold">
+                  +91-7060029580
+                </a>
               </div>
-            ) : (
-              <form onSubmit={handleSubscribe} className="space-y-2">
-                <input
-                  type="email"
-                  required
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="Enter your email"
-                  className="w-full px-3.5 py-2 rounded-lg bg-[#1b4332]/80 text-white text-xs border border-[#274e3d] focus:outline-none focus:border-[#cba72f]"
-                />
-                <button
-                  type="submit"
-                  className="w-full py-2 rounded-lg bg-[#cba72f] hover:bg-[#ffe088] text-[#241a00] font-semibold text-xs transition-colors"
-                >
-                  Subscribe
-                </button>
-              </form>
-            )}
+              <div>
+                <p className="text-[#a5d0b9] text-xs mb-1">Email</p>
+                <a href="mailto:info@aaptovedawellness.com" className="text-[#bfc9c3] hover:text-white transition-colors font-semibold break-all text-xs">
+                  info@aaptovedawellness.com
+                </a>
+              </div>
+            </div>
           </div>
         </div>
 
