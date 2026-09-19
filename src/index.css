@@ -3,6 +3,12 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @layer base {
+  html, body, #root {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+  
   body {
     font-family: 'Montserrat', sans-serif;
   }
@@ -62,4 +68,3 @@
 .dark ::-webkit-scrollbar-thumb {
   background: #274e3d;
 }
-

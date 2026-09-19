@@ -51,7 +51,7 @@ export function App() {
   }, [darkMode]);
 
   return (
-    <div className="min-h-screen min-h-dvh w-full max-w-[100vw] overflow-x-hidden bg-[#f8f9fa] dark:bg-[#121614] text-[#191c1d] dark:text-[#f0f1f2] flex flex-col justify-between selection:bg-[#cba72f] selection:text-[#241a00] transition-colors duration-300">
+    <div className="min-h-screen min-h-dvh w-full overflow-x-hidden bg-[#f8f9fa] dark:bg-[#121614] text-[#191c1d] dark:text-[#f0f1f2] flex flex-col justify-between selection:bg-[#cba72f] selection:text-[#241a00] transition-colors duration-300">
 
       {/* Top Fixed Navbar */}
       <Navbar
