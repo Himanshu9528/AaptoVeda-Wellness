@@ -33,7 +33,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
                 Est. 5,000 BCE · Classical Ayurveda
               </span>
 
-              <h1 className="font-serif text-4xl sm:text-6xl lg:text-[3.75rem] xl:text-[4.25rem] leading-[1.05] font-bold text-[#012d1d] dark:text-[#c1ecd4] tracking-tight">
+              <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl xl:text-6xl leading-[1.05] font-bold text-[#012d1d] dark:text-[#c1ecd4] tracking-tight">
                 The Science of<br />
                 <span className="italic font-normal text-[#735c00] dark:text-[#ffe088]">Sacred Botanical Harmony</span>
               </h1>
