@@ -90,7 +90,7 @@ export const ContactView: React.FC = () => {
 
       {/* Header */}
       <div className="text-center max-w-3xl mx-auto space-y-2 mb-12">
-
+<br></br>
         <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#cba72f]/20 text-[#735c00] dark:text-[#ffe088] text-[10px] font-bold uppercase tracking-widest">
           <span className="material-symbols-outlined text-xs">
             mail
